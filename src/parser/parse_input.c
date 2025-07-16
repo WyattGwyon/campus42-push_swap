@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   parse_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clouden <clouden@student.42madrid.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 22:40:12 by clouden           #+#    #+#             */
-/*   Updated: 2025/07/15 22:45:12 by clouden          ###   ########.fr       */
+/*   Created: 2025/07/16 19:06:48 by clouden           #+#    #+#             */
+/*   Updated: 2025/07/16 19:06:54 by clouden          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "parser.h"
 
-int main(int argc, char **argv)
+// This will parse a string of space separated digits
+// and return a pointer to an array of ints
+int *str2ints(char *str)
 {
-	int	i;
-	i = 1;
-	if (argc < 2)
-	{
-		return(0);
-	}
-	if (argc == 2)
-	{
-		str2ints(argv[1]);
-	}
-	while (i < argc)
-	{
-		printf("%s\n", argv[i]);
-		i++;
-	}
+	
 }

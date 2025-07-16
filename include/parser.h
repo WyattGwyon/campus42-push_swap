@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clouden <clouden@student.42madrid.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 22:40:12 by clouden           #+#    #+#             */
-/*   Updated: 2025/07/15 22:45:12 by clouden          ###   ########.fr       */
+/*   Created: 2025/07/16 16:25:14 by clouden           #+#    #+#             */
+/*   Updated: 2025/07/16 16:25:23 by clouden          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "parser.h"
+#ifndef PARSER_H
+# define PARSER_H
 
-int main(int argc, char **argv)
-{
-	int	i;
-	i = 1;
-	if (argc < 2)
-	{
-		return(0);
-	}
-	if (argc == 2)
-	{
-		str2ints(argv[1]);
-	}
-	while (i < argc)
-	{
-		printf("%s\n", argv[i]);
-		i++;
-	}
-}
+# include "libft.h"
+
+int *str2ints(char *str);
+
+#endif

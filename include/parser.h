@@ -14,7 +14,10 @@
 # define PARSER_H
 
 # include "libft.h"
+# include <stdio.h>
 
-int *str2ints(char *str);
+int ft_arrlen(void **arr);
+int *ft_str2ints(char *str);
+// int *ft_isintset(int *arr);
 
 #endif

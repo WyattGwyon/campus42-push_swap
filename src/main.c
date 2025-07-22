@@ -10,20 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "parser.h"
 
 int main(int argc, char **argv)
 {
 	int	i;
+	int *intarr;
 	i = 1;
+
 	if (argc < 2)
 	{
-		return(0);
+		return (0);
 	}
 	if (argc == 2)
 	{
-		str2ints(argv[1]);
+		intarr = ft_str2ints(argv[1]);
+		int len = ft_arrlen(&intarr);
+		printf("len %d\n", len);
+		if (!intarr)
+		{
+			printf("contains non-numerica info");
+			return (0);
+		}
 	}
 	while (i < argc)
 	{

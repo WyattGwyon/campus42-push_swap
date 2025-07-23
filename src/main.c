@@ -14,28 +14,10 @@
 
 int main(int argc, char **argv)
 {
-	int	i;
-	int *intarr;
-	i = 1;
+	t_parse_struct parse;
 
-	if (argc < 2)
-	{
-		return (0);
-	}
-	if (argc == 2)
-	{
-		intarr = ft_str2ints(argv[1]);
-		int len = ft_arrlen(&intarr);
-		printf("len %d\n", len);
-		if (!intarr)
-		{
-			printf("contains non-numerica info");
-			return (0);
-		}
-	}
-	while (i < argc)
-	{
-		printf("%s\n", argv[i]);
-		i++;
-	}
+	parse.intarr = parse_controller(argc, argv, &parse);
+	if (!parse.intarr)
+		return (printf("Error\n"), 0);
+	return (0);
 }

@@ -16,8 +16,16 @@
 # include "libft.h"
 # include <stdio.h>
 
-int ft_arrlen(void **arr);
-int *ft_str2ints(char *str);
+typedef struct s_parse
+{
+	int *intarr;
+	int i;
+	size_t size;
+} t_parse_struct;
+
+// int ft_arrlen(void *arr);
+// int *parse_str2ints(char *str);
 // int *ft_isintset(int *arr);
+int *parse_controller(int argc, char *argv[], t_parse_struct *parse);
 
 #endif

@@ -39,7 +39,6 @@ char **parse_args(int argc, char *argv[], t_parse_struct *p)
 	return (p->strarr);
 }
 
-
 int *parse_controller(int argc, char *argv[], t_parse_struct *p)
 {
 	int i;

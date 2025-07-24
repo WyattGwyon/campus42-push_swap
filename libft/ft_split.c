@@ -31,7 +31,7 @@ static int	ft_cntsplits(char const *s, char c)
 				i++;
 		}
 	}
-	return (count + 1);
+	return (count);
 }
 
 static char	*ft_findword(char const *s, char c, int *i)
@@ -62,7 +62,7 @@ static char	**ft_fillarray(char const *s, char c, char **array, int strcnt)
 
 	i = 0;
 	wi = 0;
-	while (i < strcnt - 1)
+	while (i < strcnt)
 	{
 		while (s[wi] == c)
 			wi++;
@@ -77,16 +77,15 @@ static char	**ft_fillarray(char const *s, char c, char **array, int strcnt)
 	return (array);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c, t_parse_struct *p)
 {
 	char	**array;
-	int		strcnt;
 
 	if (!s)
 		return (NULL);
-	strcnt = ft_cntsplits(s, c);
-	array = (char **)ft_calloc(strcnt, sizeof(char *));
+	p->len = ft_cntsplits(s, c);
+	array = (char **)ft_calloc(p->len + 1, sizeof(char *));
 	if (!array)
 		return (NULL);
-	return (ft_fillarray(s, c, array, strcnt));
+	return (ft_fillarray(s, c, array, p->len));
 }

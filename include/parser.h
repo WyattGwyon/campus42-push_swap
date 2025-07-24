@@ -13,14 +13,14 @@
 #ifndef PARSER_H
 # define PARSER_H
 
-# include "libft.h"
+# include "../libft/libft.h"
 # include <stdio.h>
 
 typedef struct s_parse
 {
 	int *intarr;
-	int i;
-	size_t size;
+	char **strarr;
+	int len;
 } t_parse_struct;
 
 // int ft_arrlen(void *arr);

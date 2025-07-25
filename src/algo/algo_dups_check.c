@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   djb2.c                                             :+:      :+:    :+:   */
+/*   algo_dups_check.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clouden <clouden@student.42madrid.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 22:26:39 by clouden           #+#    #+#             */
-/*   Updated: 2025/07/24 22:36:56 by clouden          ###   ########.fr       */
+/*   Created: 2025/07/25 19:41:02 by clouden           #+#    #+#             */
+/*   Updated: 2025/07/25 19:41:05 by clouden          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
 
-unsigned long hash(const char *str)
+int check_dup()
 {
-	unsigned long hash = 5381;
-	int c;
 
-	while (1)
-	{
-		c = *str;
-		if (c == '\0')
-			break;
-		hash = ((hash << 5) + hash) + c;
-		str++;
-	}
-	return (hash);
 }
 
+int insert_hash(t_parse_struct *p, t_node *hash_table[TABLE_SIZE])
+{
+	unsigned long h_idx;
+	t_node *new_node;
+	int i;
+
+	i = 0;
+	new_node = malloc(sizeof(t_node));
+	while (p->strarr[i])
+	{
+		h_idx = djb2(p->strarr[i]) % TABLE_SIZE;
+		new_node->next = hash_table[h_idx];
+		i++;
+	}
+}

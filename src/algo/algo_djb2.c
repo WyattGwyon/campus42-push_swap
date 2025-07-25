@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   algo_djb2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clouden <clouden@student.42madrid.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/16 16:25:14 by clouden           #+#    #+#             */
-/*   Updated: 2025/07/16 16:25:23 by clouden          ###   ########.fr       */
+/*   Created: 2025/07/24 22:26:39 by clouden           #+#    #+#             */
+/*   Updated: 2025/07/24 22:36:56 by clouden          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+#include "algo.h"
 
-# include <stdio.h>
-# include "libft.h"
-# include "algo.h"
-
-typedef struct s_parse
+unsigned long djb2(const char *str)
 {
-	int *intarr;
-	char **strarr;
-	int len;
-} t_parse_struct;
+	unsigned long hash = 5381;
+	int c;
 
-// int ft_arrlen(void *arr);
-// int *parse_str2ints(char *str);
-// int *ft_isintset(int *arr);
-int *parse_controller(int argc, char *argv[], t_parse_struct *parse);
+	while (1)
+	{
+		c = *str;
+		if (c == '\0')
+			break;
+		hash = ((hash << 5) + hash) + c;
+		str++;
+	}
+	return (hash);
+}
 
-#endif

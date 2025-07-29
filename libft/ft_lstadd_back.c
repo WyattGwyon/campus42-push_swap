@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.h                                             :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clouden <clouden@student.42madrid.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 22:15:59 by clouden           #+#    #+#             */
-/*   Updated: 2025/07/24 22:16:02 by clouden          ###   ########.fr       */
+/*   Created: 2025/07/28 15:05:51 by clouden           #+#    #+#             */
+/*   Updated: 2025/07/28 15:05:54 by clouden          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ALGO_H
-# define ALGO_H
-# define TABLE_SIZE 1009 // a prime number for better distribution
+#include "libft.h"
 
-# include "parser.h"
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*last;
 
-typedef struct s_node {
-    char *str;
-    struct s_node *next;
-} t_node;
-
-unsigned long djb2(const char *str);
-// int insert_hash(t_parse_struct *p, t_node *hash_table[TABLE_SIZE]);
-
-#endif
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	last = ft_lstlast(*lst);
+	last->next = new;
+}

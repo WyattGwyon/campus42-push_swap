@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.h                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clouden <clouden@student.42madrid.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 22:15:59 by clouden           #+#    #+#             */
-/*   Updated: 2025/07/24 22:16:02 by clouden          ###   ########.fr       */
+/*   Created: 2025/07/26 16:25:58 by clouden           #+#    #+#             */
+/*   Updated: 2025/07/26 16:27:16 by clouden          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ALGO_H
-# define ALGO_H
-# define TABLE_SIZE 1009 // a prime number for better distribution
+#include "libft.h"
 
-# include "parser.h"
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*new;
 
-typedef struct s_node {
-    char *str;
-    struct s_node *next;
-} t_node;
-
-unsigned long djb2(const char *str);
-// int insert_hash(t_parse_struct *p, t_node *hash_table[TABLE_SIZE]);
-
-#endif
+	new = malloc(sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
+}

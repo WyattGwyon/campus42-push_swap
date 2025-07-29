@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.h                                             :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clouden <clouden@student.42madrid.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 22:15:59 by clouden           #+#    #+#             */
-/*   Updated: 2025/07/24 22:16:02 by clouden          ###   ########.fr       */
+/*   Created: 2025/07/25 17:58:28 by clouden           #+#    #+#             */
+/*   Updated: 2025/07/25 18:02:58 by clouden          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ALGO_H
-# define ALGO_H
-# define TABLE_SIZE 1009 // a prime number for better distribution
+#include "libft.h"
 
-# include "parser.h"
+int	ft_power(int base, int exp)
+{
+	int	res;
 
-typedef struct s_node {
-    char *str;
-    struct s_node *next;
-} t_node;
+	res = base * base;
+	while (exp > 2)
+	{
+		res *= base;
+		exp--;
+	}
+	return (res);
+}
 
-unsigned long djb2(const char *str);
-// int insert_hash(t_parse_struct *p, t_node *hash_table[TABLE_SIZE]);
+// #include <stdio.h>
 
-#endif
+// int main(void)
+// {
+// 	int base = 3;
+// 	int exp = 2;
+// 	int res;
+
+// 	res = raise2power(base, exp);
+// 	printf("raise %d to the %d power returns %d\n", base, exp, res);
+// 	return (0);
+// }

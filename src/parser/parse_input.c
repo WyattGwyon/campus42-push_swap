@@ -42,12 +42,12 @@ char **parse_args(int argc, char *argv[], t_parse_struct *p)
 int *parse_controller(int argc, char *argv[], t_parse_struct *p)
 {
 	int i;
-	t_node *hash_table[TABLE_SIZE];
+	// t_node *hash_table[TABLE_SIZE];
 
 	if (argc < 2)
 		return (NULL);
 	if (argc == 2)
-		p->strarr = ft_split(argv[1], ' ', p);
+		p->strarr = ft_split(argv[1], ' ');
 	else
 		p->strarr = parse_args(argc, argv, p);
 	if(!p->strarr)

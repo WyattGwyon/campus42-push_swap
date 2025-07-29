@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.h                                             :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clouden <clouden@student.42madrid.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 22:15:59 by clouden           #+#    #+#             */
-/*   Updated: 2025/07/24 22:16:02 by clouden          ###   ########.fr       */
+/*   Created: 2025/07/28 19:03:59 by clouden           #+#    #+#             */
+/*   Updated: 2025/07/28 19:04:01 by clouden          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ALGO_H
-# define ALGO_H
-# define TABLE_SIZE 1009 // a prime number for better distribution
+#include "libft.h"
 
-# include "parser.h"
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	t_list	*new_list;
+	t_list	*new_node;
 
-typedef struct s_node {
-    char *str;
-    struct s_node *next;
-} t_node;
-
-unsigned long djb2(const char *str);
-// int insert_hash(t_parse_struct *p, t_node *hash_table[TABLE_SIZE]);
-
-#endif
+	new_list = NULL;
+	if (!lst || !f || !del)
+		return (NULL);
+	while (lst)
+	{
+		new_node = ft_lstnew(f(lst->content));
+		if (!new_node)
+		{
+			ft_lstclear(&new_list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_list, new_node);
+		lst = lst->next;
+	}
+	return (new_list);
+}

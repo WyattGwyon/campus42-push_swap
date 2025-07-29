@@ -12,33 +12,6 @@
 
 #include "parser.h"
 
-char **parse_args(int argc, char *argv[], t_parse_struct *p)
-{
-	int i;
-
-	p->len = argc;
-	p->strarr = ft_calloc(p->len, sizeof(char *));
-	if (!p->strarr)
-		return (NULL);
-	i = 1;
-	while (i < p->len)
-	{
-		p->strarr[i - 1] = ft_strdup(argv[i]);
-		if (!p->strarr[i - 1])
-		{
-			while (i > 0)
-			{
-				free(p->strarr[i - 1]);
-				i--;
-			}
-			free(p->strarr);
-			return (NULL);
-		}
-		i++;
-	}
-	return (p->strarr);
-}
-
 int *parse_controller(int argc, char *argv[], t_parse_struct *p)
 {
 	int i;
@@ -49,7 +22,7 @@ int *parse_controller(int argc, char *argv[], t_parse_struct *p)
 	if (argc == 2)
 		p->strarr = ft_split(argv[1], ' ');
 	else
-		p->strarr = parse_args(argc, argv, p);
+        p->strarr = &argv[1];
 	if(!p->strarr)
 		return (NULL);
 	i = 0;

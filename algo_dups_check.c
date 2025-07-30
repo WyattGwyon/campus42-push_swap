@@ -10,14 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "algo.h"
+#include "push_swap.h"
+
+unsigned long djb2(const char *str)
+{
+	unsigned long hash = 5381;
+	int c;
+
+	while (str[0])
+	{
+		c = *str;
+		hash = ((hash << 5) + hash) + c;
+		str++;
+	}
+	return (hash);
+}
 
 int check_dup()
 {
 
 }
 
-int insert_hash(t_parse_struct *p, t_node *hash_table[TABLE_SIZE])
+int insert_hash(t_parser *p, t_node *hash_table[TABLE_SIZE])
 {
 	unsigned long h_idx;
 	t_node *new_node;

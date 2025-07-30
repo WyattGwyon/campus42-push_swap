@@ -17,13 +17,10 @@ CFLAGS	=	-Wall -Wextra -Werror -I./include -I./libft
 
 NAME	=	push_swap
 
-SRC_DIR	=	src
-OBJ_DIR	=	obj
+SRCS	=	main.c \
+			parse_input.c
 
-SRCS	=	$(SRC_DIR)/main.c \
-			$(SRC_DIR)/parser/parse_input.c
-
-OBJS	=	$(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+OBJS	=	$(SRCS:%.c=%.o)
 
 LIBFT_DIR = libft
 LIBFT 	=	$(LIBFT_DIR)/libft.a
@@ -36,12 +33,11 @@ $(NAME):$(OBJS) $(LIBFT)
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR) all
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(dir $@)
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ_DIR)
+	rm -rf *.o
 	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean

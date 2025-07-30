@@ -10,14 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "push_swap.h"
 
 int main(int argc, char **argv)
 {
-	t_parse_struct parse;
+	t_parser *data;
 
-	parse.intarr = parse_controller(argc, argv, &parse);
-	if (!parse.intarr)
-		return (printf("Error\n"), 0);
+	data = parse_controller(argc, argv);
+	if (!data)
+		return (printf("Error\n"), 1);
+	if (!data->intarr)
+		return (free(data), printf("Error\n"), 1);
+
+	free(data);
 	return (0);
 }

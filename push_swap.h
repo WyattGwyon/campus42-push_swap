@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clouden <clouden@student.42madrid.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,23 +10,46 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+# define TABLE_SIZE 1009 // a prime number for better distribution
 
 # include <stdio.h>
 # include "libft.h"
-# include "algo.h"
 
-typedef struct s_parse
+typedef struct s_parser
 {
-	int *intarr;
-	char **strarr;
-	int len;
-} t_parse_struct;
+	char	**strarr;
+	int		*intarr;
+	int		len;
+}	t_parser;
 
+typedef struct s_node
+{
+	char			*str;
+	struct s_node	*next;
+}	t_node;
+
+typedef struct s_hash_table
+{
+	t_node	*index[TABLE_SIZE];
+}				t_hash_table;
+
+typedef struct	s_stacks t_stacks;
+typedef void	(*t_operation)(t_stacks *s);
+
+typedef struct s_op_handler
+{
+	const char	*name;
+	t_operation	op;
+}	t_op_handler;
+
+void			init_handlers(t_op_handler *op_handlers);
+unsigned long	djb2(const char *str);
+t_parser		*parse_controller(int argc, char *argv[]);
 // int ft_arrlen(void *arr);
 // int *parse_str2ints(char *str);
 // int *ft_isintset(int *arr);
-int *parse_controller(int argc, char *argv[], t_parse_struct *parse);
+// int insert_hash(t_parse_struct *p, t_node *hash_table[TABLE_SIZE]);
 
 #endif

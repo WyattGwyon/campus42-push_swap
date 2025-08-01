@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strarr_len.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clouden <clouden@student.42madrid.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 22:40:12 by clouden           #+#    #+#             */
-/*   Updated: 2025/07/15 22:45:12 by clouden          ###   ########.fr       */
+/*   Created: 2025/08/01 19:12:42 by clouden           #+#    #+#             */
+/*   Updated: 2025/08/01 19:12:58 by clouden          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+int	ft_strarr_len(char **arr)
 {
-	t_parser *data;
+	int len;
 
-	data = parse_controller(argc, argv);
-	if (!data)
-		return (write(2,"Error\n", 6), 1);
-	if (!data->intarr)
-		return (free(data), write(2, "Error\n", 6), 1);
-
-	free(data);
-	return (0);
+	len = 0;
+	while (arr && arr[len])
+		len++;
+	return (len);
 }

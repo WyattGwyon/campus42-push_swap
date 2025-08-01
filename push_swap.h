@@ -14,7 +14,9 @@
 # define PUSH_SWAP_H
 # define TABLE_SIZE 1009 // a prime number for better distribution
 
+# include <unistd.h>
 # include <stdio.h>
+# include <limits.h>
 # include "libft.h"
 
 typedef struct s_parser

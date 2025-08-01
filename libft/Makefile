@@ -61,7 +61,12 @@ SRCS    =	ft_atoi.c\
 			ft_lstdelone.c\
 			ft_lstclear.c\
 			ft_lstiter.c\
-			ft_lstmap.c
+			ft_lstmap.c\
+			ft_atol.c\
+			ft_strarr_free.c\
+			ft_strarr_len.c\
+			ft_strarr_join.c
+
 OBJS    = $(SRCS:.c=.o)
 
 #Test file

@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strarr_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clouden <clouden@student.42madrid.com      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/15 22:40:12 by clouden           #+#    #+#             */
-/*   Updated: 2025/07/15 22:45:12 by clouden          ###   ########.fr       */
+/*   Created: 2025/08/01 19:05:04 by clouden           #+#    #+#             */
+/*   Updated: 2025/08/01 19:06:25 by clouden          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+void	ft_strarr_free(char ***arr)
 {
-	t_parser *data;
+	int	i;
 
-	data = parse_controller(argc, argv);
-	if (!data)
-		return (write(2,"Error\n", 6), 1);
-	if (!data->intarr)
-		return (free(data), write(2, "Error\n", 6), 1);
-
-	free(data);
-	return (0);
+	if (!arr || !*arr)
+		return;
+	i = 0;
+	while ((*arr)[i])
+	{
+		free((*arr)[i]);
+		i++;
+	}
+	free(*arr);
+	*arr = NULL;
 }

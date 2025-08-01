@@ -66,5 +66,9 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+long	ft_atol(const char *str);
+void	ft_strarr_free(char ***arr);
+int		ft_strarr_len(char **arr);
+char	**ft_strarr_join(char **arr1, char **arr2);
 
 #endif

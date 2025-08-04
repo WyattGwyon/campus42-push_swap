@@ -26,6 +26,15 @@ typedef struct s_parser
 	int		len;
 }	t_parser;
 
+typedef struct s_stack
+{
+	int	*a_stack;
+	int	*b_stack;
+	int	a_top;
+	int	b_top;
+	int len;
+}	t_stack;
+
 typedef struct s_node
 {
 	char			*str;
@@ -50,6 +59,7 @@ void			init_handlers(t_op_handler *op_handlers);
 unsigned long	djb2(const char *str);
 t_parser		*parse_controller(int argc, char *argv[]);
 int 			ft_issorted(t_parser *p);
+t_stack			*stack_creation(t_parser *p);
 // int ft_arrlen(void *arr);
 // int *parse_str2ints(char *str);
 // int *ft_isintset(int *arr);

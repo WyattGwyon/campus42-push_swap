@@ -106,7 +106,6 @@ static int *digit_manager(t_parser *p)
 // need to dispose of data here
 t_parser *parse_controller(int argc, char *argv[])
 {
-	int i;
 	t_parser *p_data;
 
 	if (argc < 2)
@@ -122,13 +121,7 @@ t_parser *parse_controller(int argc, char *argv[])
 		return (NULL);
 	if (ft_issorted(p_data))
 		return (p_data);
-	i = 0;
-	while (p_data->strarr[i])
-	{
-		printf("srtarr[%d] %s\n",   i, p_data->strarr[i]);
-		printf("intarr[%d] %d\n\n", i, p_data->intarr[i]);
-		i++;
-	}
+	
 	printf("len %d\n", p_data->len);
 
 	return (p_data);

@@ -13,7 +13,7 @@
 
 CC		=	cc
 CFLAGS	=	-Wall -Wextra -Werror -I./include -I./libft
-#CFLAGS	+=	-g3
+CFLAGS	+=	-g3 -Wno-unused-function
 
 NAME	=	push_swap
 

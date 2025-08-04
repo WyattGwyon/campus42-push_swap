@@ -120,6 +120,8 @@ t_parser *parse_controller(int argc, char *argv[])
 		return (NULL);
 	if (contains_dup(p_data))
 		return (NULL);
+	if (ft_issorted(p_data))
+		return (p_data);
 	i = 0;
 	while (p_data->strarr[i])
 	{
@@ -127,6 +129,7 @@ t_parser *parse_controller(int argc, char *argv[])
 		printf("intarr[%d] %d\n\n", i, p_data->intarr[i]);
 		i++;
 	}
+	printf("len %d\n", p_data->len);
 
 	return (p_data);
 }

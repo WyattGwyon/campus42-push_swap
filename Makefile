@@ -18,7 +18,8 @@ CFLAGS	=	-Wall -Wextra -Werror -I./include -I./libft
 NAME	=	push_swap
 
 SRCS	=	main.c \
-			parse_input.c
+			parse_input.c\
+			check_order.c
 
 OBJS	=	$(SRCS:%.c=%.o)
 

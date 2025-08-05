@@ -59,7 +59,6 @@ static char **arg_separation(int argc, char *argv[])
 	char **joined;
 
 	i = 1;
-	joined = NULL;
 	strarr = NULL;
 	while (i < argc)
 	{
@@ -68,9 +67,9 @@ static char **arg_separation(int argc, char *argv[])
 			return (ft_strarr_free(&strarr), NULL);
 		joined = ft_strarr_join(strarr, split);
 		ft_strarr_free(&split);
-		ft_strarr_free(&strarr);
 		if (!joined)
-			return (NULL);
+			return (ft_strarr_free(&strarr), NULL);
+		ft_strarr_free(&strarr);
 		strarr = joined;
 		i++;
 	}
@@ -90,14 +89,19 @@ static int *digit_manager(t_parser *p)
 	while (i < p->len)
 	{
 		if (!valid_number(p->strarr[i]))
-			return(NULL);
-		else
 		{
-			val = ft_atol(p->strarr[i]);
-			if (val > INT_MAX || val < INT_MIN)
-				return (NULL);
-			p->intarr[i] = val;
+			free(p->intarr);
+			p->intarr = NULL;
+			return(NULL);
 		}
+		val = ft_atol(p->strarr[i]);
+		if (val > INT_MAX || val < INT_MIN)
+		{
+			free(p->intarr);
+			p->intarr = NULL;
+			return (NULL);
+		}
+		p->intarr[i] = val;
 		i++;
 	}
 	return (p->intarr);
@@ -115,12 +119,19 @@ t_parser *parse_controller(int argc, char *argv[])
 		return (NULL);
 	p_data->strarr = arg_separation(argc, argv);
 	if (!p_data->strarr)
+	{
+		free(p_data);
 		return (NULL);
+	}
 	p_data->intarr = digit_manager(p_data);
-	if (!p_data->intarr)
+	if (!p_data->intarr || contains_dup(p_data))
+	{
+		ft_strarr_free(&p_data->strarr);
+		free(p_data->intarr);
+		p_data->intarr = NULL;
+		free(p_data);
 		return (NULL);
-	if (contains_dup(p_data))
-		return (NULL);
+	}
 	if (ft_issorted(p_data))
 		return (p_data);
 	

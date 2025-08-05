@@ -111,8 +111,10 @@ t_parser *parse_controller(int argc, char *argv[])
 	if (argc < 2)
 		return (NULL);
 	p_data = ft_calloc(1, sizeof(t_parser));
+	if (!p_data)
+		return (NULL);
 	p_data->strarr = arg_separation(argc, argv);
-	if(!p_data->strarr)
+	if (!p_data->strarr)
 		return (NULL);
 	p_data->intarr = digit_manager(p_data);
 	if (!p_data->intarr)

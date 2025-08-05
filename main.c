@@ -30,10 +30,27 @@ void free_strarr(char ***strarr)
     *strarr = NULL;
 }
 
+void print_list(t_stack_node *head, int count) 
+{
+    t_stack_node 	*curr; 
+	int 			i;
+	
+	curr = head;
+	i = 0;
+    while (i < count) 
+	{
+        printf("%d ", curr->value);
+        curr = curr->next;
+		i++;
+    }
+    printf("\n");
+}
+
 int main(int argc, char **argv)
 {
-	t_parser 	*data;
-	t_stack		*stack;
+	t_parser 		*data;
+	t_stack_node	*a_stack;
+	// t_stack_node	*b_stack;
 
 	data = parse_controller(argc, argv);
 	if (!data)
@@ -44,13 +61,15 @@ int main(int argc, char **argv)
 		free(data);
 		return (write(2, "Error\n", 6), 1);
 	}
-	stack = stack_creation(data);
-
+	a_stack = stack_list(data);
+	print_list(a_stack, data->len);
 	free_strarr(&data->strarr);
 	free(data->intarr);
 	data->intarr = NULL;
 	free(data);
+	ft_dl_lstclear(&a_stack);
 
+	
 	
 	return (0);
 }

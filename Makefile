@@ -19,7 +19,9 @@ NAME	=	push_swap
 
 SRCS	=	main.c \
 			parse_input.c\
-			check_order.c
+			check_order.c\
+			double_linked_lists.c\
+			stack.c
 
 OBJS	=	$(SRCS:%.c=%.o)
 

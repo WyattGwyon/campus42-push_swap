@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <limits.h>
-# include "libft.h"
+# include "libft/libft.h"
 
 typedef struct s_parser
 {
@@ -25,6 +25,13 @@ typedef struct s_parser
 	int		*intarr;
 	int		len;
 }	t_parser;
+
+typedef struct s_stack_node
+{
+	int	value;
+	struct s_stack_node	*prev;
+	struct s_stack_node *next;
+}	t_stack_node;
 
 typedef struct s_stack
 {
@@ -59,7 +66,12 @@ void			init_handlers(t_op_handler *op_handlers);
 unsigned long	djb2(const char *str);
 t_parser		*parse_controller(int argc, char *argv[]);
 int 			ft_issorted(t_parser *p);
-t_stack			*stack_creation(t_parser *p);
+t_stack_node 	*stack_list(t_parser *p);
+t_stack_node	*ft_dl_lstnew(int value);
+void			ft_dl_lstadd_front(t_stack_node **head, t_stack_node *new);
+void			ft_dl_lstdelhead(t_stack_node **head);
+void			ft_dl_lstclear(t_stack_node **head);
+
 // int ft_arrlen(void *arr);
 // int *parse_str2ints(char *str);
 // int *ft_isintset(int *arr);

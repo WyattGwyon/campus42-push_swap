@@ -19,13 +19,42 @@ static void	print_list(t_stack_node *head, int count)
 
 	curr = head;
 	i = 0;
+	printf("list\n");
 	while (i < count)
 	{
-		printf("%d ", curr->value);
+		printf("%d:%d ", curr->index, curr->value);
 		curr = curr->next;
 		i++;
 	}
 	printf("\n");
+}
+
+void	assign_indices(t_stack_node *head, int size)
+{	
+	int				i;
+	int				j;
+	int				min;
+	t_stack_node 	*min_node;
+	t_stack_node	*current;
+
+	i = 0;
+	while (i < size)
+	{
+		min = INT_MAX;
+		min_node = NULL;
+		current = head;
+		j = 0;
+		while (size > j++)
+		{
+			if (current->index == -1 && current->value < min)
+			{
+				min = current->value;
+				min_node = current;
+			}
+			current = current->next;
+		}
+		min_node->index = i++;
+	}
 }
 
 t_stack_node	*stack_list(t_parser *p)
@@ -39,9 +68,11 @@ t_stack_node	*stack_list(t_parser *p)
 	while (i >= 0)
 	{
 		new_node = ft_dl_lstnew(p->intarr[i]);
+		new_node->index = -1;
 		ft_dl_lstadd_front(&head, new_node);
 		i--;
 	}
+	assign_indices(head, p->len);
 	return (head);
 }
 

@@ -43,6 +43,7 @@ int	main(int argc, char **argv)
 		free(data);
 		return (write(2, "Error\n", 6), 1);
 	}
+	ft_issorted(data);
 	stack_controller(data);
 	ft_strarr_free(&data->strarr);
 	free(data->intarr);

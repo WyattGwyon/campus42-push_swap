@@ -24,11 +24,14 @@ typedef struct s_parser
 	char	**strarr;
 	int		*intarr;
 	int		len;
+	int		max;
+	int		min;
 }	t_parser;
 
 typedef struct s_stack_node
 {
 	int					value;
+	int					index;
 	struct s_stack_node	*prev;
 	struct s_stack_node	*next;
 }	t_stack_node;

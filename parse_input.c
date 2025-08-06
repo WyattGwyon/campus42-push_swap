@@ -128,8 +128,6 @@ t_parser	*parse_controller(int argc, char *argv[])
 		free(p_data);
 		return (NULL);
 	}
-	if (ft_issorted(p_data))
-		return (p_data);
 	printf("len %d\n", p_data->len);
 	return (p_data);
 }

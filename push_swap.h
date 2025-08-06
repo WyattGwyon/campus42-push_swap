@@ -71,6 +71,13 @@ t_stack_node	*ft_dl_lstnew(int value);
 void			ft_dl_lstadd_front(t_stack_node **head, t_stack_node *new);
 void			ft_dl_lstdelhead(t_stack_node **head);
 void			ft_dl_lstclear(t_stack_node **head);
+void			ft_struct_free(void **ptr);
+void			ft_intarr_free(int **arr);
+void			clean_parser(t_parser **p);
+void			clean_all(t_parser **p, t_stack_node **a_stack, t_stack_node **b_stack);
+void			push(t_stack_node **src_head, t_stack_node **dest_head);
+void			swap(t_stack_node **head);
+void			rotate(t_stack_node **head, char direction);
 
 // int ft_arrlen(void *arr);
 // int *parse_str2ints(char *str);

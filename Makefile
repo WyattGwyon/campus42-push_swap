@@ -21,7 +21,12 @@ SRCS	=	main.c \
 			parse_input.c\
 			check_order.c\
 			double_linked_lists.c\
-			stack.c
+			stack.c\
+			push.c\
+			swap.c\
+			rotate.c\
+			rev_rotate.c\
+			errors.c
 
 OBJS	=	$(SRCS:%.c=%.o)
 

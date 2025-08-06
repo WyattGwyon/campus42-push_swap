@@ -62,6 +62,7 @@ void	ft_dl_lstdelhead(t_stack_node **head)
 	old_head->next->prev = old_head->prev;
 	*head = old_head->next;
 	free(old_head);
+	old_head = NULL;
 }
 
 void	ft_dl_lstclear(t_stack_node **head)
@@ -72,6 +73,7 @@ void	ft_dl_lstclear(t_stack_node **head)
 	{
 		ft_dl_lstdelhead(head);
 	}
+	*head = NULL;
 }
 
 // void	print_list(t_stack_node *head)

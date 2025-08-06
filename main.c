@@ -12,23 +12,6 @@
 
 #include "push_swap.h"
 
-void	free_strarr(char ***strarr)
-{
-	int	i;
-
-	i = 0;
-	if (!strarr || !*strarr)
-		return ;
-	while ((*strarr)[i])
-	{
-		free((*strarr)[i]);
-		(*strarr)[i] = NULL;
-		i++;
-	}
-	free(*strarr);
-	*strarr = NULL;
-}
-
 void	print_list(t_stack_node *head, int count)
 {
 	t_stack_node	*curr;
@@ -40,7 +23,7 @@ void	print_list(t_stack_node *head, int count)
 	{
 		printf("%d ", curr->value);
 		curr = curr->next;
-	i++;
+		i++;
 	}
 	printf("\n");
 }
@@ -50,6 +33,9 @@ int	main(int argc, char **argv)
 	t_parser		*data;
 	t_stack_node	*a_stack;
 	// t_stack_node	*b_stack;
+
+	if (argc < 2)
+		return (0);
 	data = parse_controller(argc, argv);
 	if (!data)
 		return (write(2, "Error\n", 6), 1);

@@ -90,15 +90,13 @@ static int	*digit_manager(t_parser *p)
 	{
 		if (!valid_number(p->strarr[i]))
 		{
-			free(p->intarr);
-			p->intarr = NULL;
+			ft_intarr_free(&p->intarr);
 			return (NULL);
 		}
 		val = ft_atol(p->strarr[i]);
 		if (val > INT_MAX || val < INT_MIN)
 		{
-			free(p->intarr);
-			p->intarr = NULL;
+			ft_intarr_free(&p->intarr);
 			return (NULL);
 		}
 		p->intarr[i] = val;
@@ -112,8 +110,6 @@ t_parser	*parse_controller(int argc, char *argv[])
 {
 	t_parser	*p_data;
 
-	if (argc < 2)
-		return (NULL);
 	p_data = ft_calloc(1, sizeof(t_parser));
 	if (!p_data)
 		return (NULL);

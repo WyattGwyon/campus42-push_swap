@@ -29,41 +29,8 @@ t_stack_node	*stack_list(t_parser *p)
 	return (head);
 }
 
-// t_stack *stack_array(t_parser *p)
-// {
-// 	t_stack *s;
 
-// 	s->a_stack = p->intarr;
-// 	s->a_stack = ft_calloc(p->len, sizeof(int));
-// 	if (!s->a_stack)
-// 		return (NULL);
-// 	ft_memcpy(s->a_stack, p->intarr, p->len * sizeof(int));
-// 	s->b_stack = ft_calloc(p->len, sizeof(int));
-// 	s->a_top = 0;
-// 	s->b_top = 0;
-// 	s->len = p->len;
-// 	return (s);
-// }
 
-// int main(void)
-// {
-// 	t_parser *p;
-// 	int i = 0;
-// 	t_stack_node *head;
-
-// 	head = NULL;
-// 	while (i < 4)
-// 	{
-// 		p->intarr[i] = i;
-// 		i++;
-// 	}
-// 	head = stack_list(p);
-// 	i = 0;
-// 	while (i < 4)
-// 	{
-
-// 	}
-// }
 // #include <stdio.h>
 // #include <stdlib.h>
 // #include <assert.h>

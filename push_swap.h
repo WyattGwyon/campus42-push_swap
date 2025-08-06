@@ -74,6 +74,7 @@ void			push(t_stack_node **src_head, t_stack_node **dest_head);
 void			swap(t_stack_node **head);
 void			rotate(t_stack_node **head);
 void			rev_rotate(t_stack_node **head);
+void    		radix_sort(t_stack_node **a, t_stack_node **b, int size);
 void			pa(t_stack_node **a, t_stack_node **b);
 void			pb(t_stack_node **a, t_stack_node **b);
 void			sa(t_stack_node **a);

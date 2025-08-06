@@ -21,6 +21,7 @@ SRCS	=	main.c \
 			parse_input.c\
 			check_order.c\
 			double_linked_lists.c\
+			radix.c\
 			stack.c\
 			push.c\
 			swap.c\

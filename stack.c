@@ -84,6 +84,8 @@ void	stack_controller(t_parser *p)
 	a_stack = stack_list(p);
 	b_stack = NULL;
 	print_list(a_stack, p->len);
+	printf("Radix will be called\n");
+	radix_sort(&a_stack, &b_stack, p->len);
 	ft_dl_lstclear(&a_stack);
 	ft_dl_lstclear(&b_stack);
 }

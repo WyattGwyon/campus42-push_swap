@@ -28,9 +28,9 @@ typedef struct s_parser
 
 typedef struct s_stack_node
 {
-	int	value;
+	int					value;
 	struct s_stack_node	*prev;
-	struct s_stack_node *next;
+	struct s_stack_node	*next;
 }	t_stack_node;
 
 typedef struct s_stack
@@ -39,7 +39,7 @@ typedef struct s_stack
 	int	*b_stack;
 	int	a_top;
 	int	b_top;
-	int len;
+	int	len;
 }	t_stack;
 
 typedef struct s_node
@@ -53,8 +53,8 @@ typedef struct s_hash_table
 	t_node	*index[TABLE_SIZE];
 }				t_hash_table;
 
-typedef struct	s_stacks t_stacks;
-typedef void	(*t_operation)(t_stacks *s);
+typedef struct s_stacks	t_stacks;
+typedef void			(*t_operation)(t_stacks *s);
 
 typedef struct s_op_handler
 {
@@ -65,8 +65,8 @@ typedef struct s_op_handler
 void			init_handlers(t_op_handler *op_handlers);
 unsigned long	djb2(const char *str);
 t_parser		*parse_controller(int argc, char *argv[]);
-int 			ft_issorted(t_parser *p);
-t_stack_node 	*stack_list(t_parser *p);
+int				ft_issorted(t_parser *p);
+t_stack_node	*stack_list(t_parser *p);
 t_stack_node	*ft_dl_lstnew(int value);
 void			ft_dl_lstadd_front(t_stack_node **head, t_stack_node *new);
 void			ft_dl_lstdelhead(t_stack_node **head);

@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-static int contains_dup(t_parser *p)
+static int	contains_dup(t_parser *p)
 {
-	int head;
-	int cmp;
+	int	head;
+	int	cmp;
 
 	head = 0;
 	cmp = 1;
@@ -35,7 +35,7 @@ static int contains_dup(t_parser *p)
 
 static int	valid_number(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!str)
@@ -43,7 +43,7 @@ static int	valid_number(char *str)
 	while (str[i])
 	{
 		if (i == 0 && (str[i] == '+' || str[i] == '-'))
-				i++;
+			i++;
 		if (ft_isdigit(str[i]) != 1)
 			return (0);
 		i++;
@@ -51,12 +51,12 @@ static int	valid_number(char *str)
 	return (1);
 }
 
-static char **arg_separation(int argc, char *argv[])
+static char	**arg_separation(int argc, char *argv[])
 {
-	int i;
-	char **strarr;
-	char **split;
-	char **joined;
+	int		i;
+	char	**strarr;
+	char	**split;
+	char	**joined;
 
 	i = 1;
 	strarr = NULL;
@@ -76,10 +76,10 @@ static char **arg_separation(int argc, char *argv[])
 	return (strarr);
 }
 
-static int *digit_manager(t_parser *p)
+static int	*digit_manager(t_parser *p)
 {
-	int i;
-	long val;
+	int		i;
+	long	val;
 
 	i = 0;
 	p->len = ft_strarr_len(p->strarr);
@@ -92,7 +92,7 @@ static int *digit_manager(t_parser *p)
 		{
 			free(p->intarr);
 			p->intarr = NULL;
-			return(NULL);
+			return (NULL);
 		}
 		val = ft_atol(p->strarr[i]);
 		if (val > INT_MAX || val < INT_MIN)
@@ -108,9 +108,9 @@ static int *digit_manager(t_parser *p)
 }
 
 // need to dispose of data here
-t_parser *parse_controller(int argc, char *argv[])
+t_parser	*parse_controller(int argc, char *argv[])
 {
-	t_parser *p_data;
+	t_parser	*p_data;
 
 	if (argc < 2)
 		return (NULL);
@@ -134,8 +134,6 @@ t_parser *parse_controller(int argc, char *argv[])
 	}
 	if (ft_issorted(p_data))
 		return (p_data);
-	
 	printf("len %d\n", p_data->len);
-
 	return (p_data);
 }

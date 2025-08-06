@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-t_stack_node *stack_list(t_parser *p)
+t_stack_node	*stack_list(t_parser *p)
 {
-	int 			i;
-	t_stack_node 	*new_node;
+	int				i;
+	t_stack_node	*new_node;
 	t_stack_node	*head;
 
 	i = p->len - 1;
@@ -28,7 +28,6 @@ t_stack_node *stack_list(t_parser *p)
 	}
 	return (head);
 }
-
 
 // t_stack *stack_array(t_parser *p)
 // {
@@ -45,7 +44,6 @@ t_stack_node *stack_list(t_parser *p)
 // 	s->len = p->len;
 // 	return (s);
 // }
-
 
 // int main(void)
 // {
@@ -69,7 +67,6 @@ t_stack_node *stack_list(t_parser *p)
 // #include <stdio.h>
 // #include <stdlib.h>
 // #include <assert.h>
-
 
 // // Assume t_stack_node and your list functions are declared
 

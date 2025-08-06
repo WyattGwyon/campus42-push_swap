@@ -47,7 +47,7 @@ void	ft_dl_lstadd_front(t_stack_node **head, t_stack_node *new)
 
 void	ft_dl_lstdelhead(t_stack_node **head)
 {
-	t_stack_node *old_head;
+	t_stack_node	*old_head;
 
 	if (!head || !*head)
 		return ;

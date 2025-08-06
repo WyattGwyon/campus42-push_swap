@@ -14,7 +14,7 @@
 
 int	ft_strarr_len(char **arr)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (arr && arr[len])

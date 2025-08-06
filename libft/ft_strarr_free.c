@@ -12,18 +12,19 @@
 
 #include "libft.h"
 
-void	ft_strarr_free(char ***arr)
+void	ft_strarr_free(char ***strarr)
 {
 	int	i;
 
-	if (!arr || !*arr)
-		return;
+	if (!strarr || !*strarr)
+		return ;
 	i = 0;
-	while ((*arr)[i])
+	while ((*strarr)[i])
 	{
-		free((*arr)[i]);
+		free((*strarr)[i]);
+		(*strarr)[i] = NULL;
 		i++;
 	}
-	free(*arr);
-	*arr = NULL;
+	free(*strarr);
+	*strarr = NULL;
 }

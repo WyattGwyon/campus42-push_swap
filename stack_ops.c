@@ -25,7 +25,7 @@
 
 void	push(t_stack_node **src_head, t_stack_node **dest_head)
 {
-	t_stack_node *push_node;
+	t_stack_node	*push_node;
 
 	push_node = *src_head;
 	if (push_node->next == push_node)

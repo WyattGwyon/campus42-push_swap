@@ -12,18 +12,18 @@
 
 #include "push_swap.h"
 
-int ft_issorted(t_parser *p)
+int	ft_issorted(t_parser *p)
 {
-    int i;
-    int cmp;
+	int	i;
+	int	cmp;
 
-    i = 0;
-    while ((i + 1) < p->len)
-    {
-        cmp = p->intarr[i] < p->intarr[i + 1];
-        if (!cmp)
-            return (printf("NOT sorted\n"), 0);
-        i++;
-    }
-    return (printf("is sorted\n"),1);
+	i = 0;
+	while ((i + 1) < p->len)
+	{
+		cmp = p->intarr[i] < p->intarr[i + 1];
+		if (!cmp)
+			return (printf("NOT sorted\n"), 0);
+		i++;
+	}
+	return (printf("is sorted\n"), 1);
 }

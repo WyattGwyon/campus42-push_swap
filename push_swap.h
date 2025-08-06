@@ -33,15 +33,6 @@ typedef struct s_stack_node
 	struct s_stack_node	*next;
 }	t_stack_node;
 
-typedef struct s_stack
-{
-	int	*a_stack;
-	int	*b_stack;
-	int	a_top;
-	int	b_top;
-	int	len;
-}	t_stack;
-
 typedef struct s_node
 {
 	char			*str;
@@ -67,6 +58,7 @@ unsigned long	djb2(const char *str);
 t_parser		*parse_controller(int argc, char *argv[]);
 int				ft_issorted(t_parser *p);
 t_stack_node	*stack_list(t_parser *p);
+void			stack_controller(t_parser *p);
 t_stack_node	*ft_dl_lstnew(int value);
 void			ft_dl_lstadd_front(t_stack_node **head, t_stack_node *new);
 void			ft_dl_lstdelhead(t_stack_node **head);
@@ -77,7 +69,19 @@ void			clean_parser(t_parser **p);
 void			clean_all(t_parser **p, t_stack_node **a_stack, t_stack_node **b_stack);
 void			push(t_stack_node **src_head, t_stack_node **dest_head);
 void			swap(t_stack_node **head);
-void			rotate(t_stack_node **head, char direction);
+void			rotate(t_stack_node **head);
+void			rev_rotate(t_stack_node **head);
+void			pa(t_stack_node **a, t_stack_node **b);
+void			pb(t_stack_node **a, t_stack_node **b);
+void			sa(t_stack_node **a);
+void			sb(t_stack_node **b);
+void			ss(t_stack_node **a, t_stack_node **b);
+void			ra(t_stack_node **a);
+void			rb(t_stack_node **b);
+void			rr(t_stack_node **a, t_stack_node **b);
+void			rra(t_stack_node **a);
+void			rrb(t_stack_node **b);
+void			rrr(t_stack_node **a, t_stack_node **b);
 
 // int ft_arrlen(void *arr);
 // int *parse_str2ints(char *str);

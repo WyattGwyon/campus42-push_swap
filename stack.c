@@ -12,6 +12,22 @@
 
 #include "push_swap.h"
 
+static void	print_list(t_stack_node *head, int count)
+{
+	t_stack_node	*curr;
+	int				i;
+
+	curr = head;
+	i = 0;
+	while (i < count)
+	{
+		printf("%d ", curr->value);
+		curr = curr->next;
+		i++;
+	}
+	printf("\n");
+}
+
 t_stack_node	*stack_list(t_parser *p)
 {
 	int				i;
@@ -29,54 +45,15 @@ t_stack_node	*stack_list(t_parser *p)
 	return (head);
 }
 
+void	stack_controller(t_parser *p)
+{
+	t_stack_node	*a_stack;
+	t_stack_node	*b_stack;
 
+	a_stack = stack_list(p);
+	b_stack = NULL;
+	print_list(a_stack, p->len);
+	ft_dl_lstclear(&a_stack);
+	ft_dl_lstclear(&b_stack);
+}
 
-// #include <stdio.h>
-// #include <stdlib.h>
-// #include <assert.h>
-
-// // Assume t_stack_node and your list functions are declared
-
-// // Helper: print the list (for debugging)
-// void print_list(t_stack_node *head, int count) {
-//     t_stack_node *curr = head;
-//     for (int i = 0; i < count; i++) {
-//         printf("%d ", curr->value);
-//         curr = curr->next;
-//     }
-//     printf("\n");
-// }
-
-// // Test function for stack_list
-// void test_stack_list() {
-//     // Setup parser with example data
-//     t_parser p;
-//     int arr[] = {10, 20, 30, 40};
-//     p.intarr = arr;
-//     p.len = 4;
-
-//     // Call the function
-//     t_stack_node *head = stack_list(&p);
-
-//     // Verify list length and values (should be 10 -> 20 -> 30 -> 40)
-//     t_stack_node *curr = head;
-//     for (int i = 0; i < p.len; i++) {
-//         assert(curr != NULL);
-//         assert(curr->value == arr[i]);
-//         curr = curr->next;
-//     }
-
-//     // Optionally print list for manual check
-//     print_list(head, p.len);
-
-//     // Clean up list
-//     ft_dl_lstclear(&head);
-//     assert(head == NULL);
-
-//     printf("test_stack_list passed!\n");
-// }
-
-// int main() {
-//     test_stack_list();
-//     return 0;
-// }

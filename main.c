@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	print_list(t_stack_node *head, int count)
+static void	print_list(t_stack_node *head, int count)
 {
 	t_stack_node	*curr;
 	int				i;
@@ -31,8 +31,6 @@ void	print_list(t_stack_node *head, int count)
 int	main(int argc, char **argv)
 {
 	t_parser		*data;
-	t_stack_node	*a_stack;
-	// t_stack_node	*b_stack;
 
 	if (argc < 2)
 		return (0);
@@ -45,12 +43,10 @@ int	main(int argc, char **argv)
 		free(data);
 		return (write(2, "Error\n", 6), 1);
 	}
-	a_stack = stack_list(data);
-	print_list(a_stack, data->len);
+	stack_controller(data);
 	ft_strarr_free(&data->strarr);
 	free(data->intarr);
 	data->intarr = NULL;
 	free(data);
-	ft_dl_lstclear(&a_stack);
 	return (0);
 }

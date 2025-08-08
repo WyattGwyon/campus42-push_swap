@@ -34,6 +34,10 @@ OBJS	=	$(SRCS:%.c=%.o)
 LIBFT_DIR = libft
 LIBFT 	=	$(LIBFT_DIR)/libft.a
 
+# TEST_SRC = .test.c
+# TEST_OBJ = $(TEST_SRC:.c=.o)
+# TEST_BIN = test
+
 all:$(NAME)
 
 $(NAME):$(OBJS) $(LIBFT)
@@ -45,14 +49,20 @@ $(LIBFT):
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# test: $(TEST_OBJ) $(NAME)
+# 	$(CC) $(CFLAGS) $^ -o $(TEST_BIN)
+
 clean:
-	rm -rf *.o
+	rm -rf *.o 
+# $(TEST_OBJ)
 	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) 
+# $(TEST_BIN)
 	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
-.PHONY: re all clean fclean
+.PHONY: re all clean fclean 
+#test

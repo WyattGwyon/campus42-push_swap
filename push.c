@@ -27,28 +27,32 @@ void	push(t_stack_node **dest_head, t_stack_node **src_head)
 	}
 	if (!dest_head || !*dest_head)
 	{
-		*dest_head = push_node;
 		push_node->next = push_node;
 		push_node->prev = push_node;
+		*dest_head = push_node;
 	}
 	else
 	{
-		push_node->next = *dest_head;
 		push_node->prev = (*dest_head)->prev;
-		(*dest_head)->prev = push_node;
-		(*dest_head)->prev->next = push_node;
+		push_node->next = *dest_head;
+		push_node->prev->next = push_node;
+		push_node->next->prev = push_node;
 		*dest_head = push_node;
 	}
 }
 
 void	pa(t_stack_node **a, t_stack_node **b)
 {
-	push(b,a);
+	if (!b || !*b)
+		return ;
+	push(a,b);
 	write(1, "pa\n", 3);
 }
 
 void	pb(t_stack_node **a, t_stack_node **b)
 {
-	push(a,b);
+	if (!a || !*a)
+		return ;
+	push(b,a);
 	write(1,"pb\n", 3);
 }

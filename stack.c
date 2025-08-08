@@ -33,7 +33,7 @@ void	assign_indices(t_stack_node *head, int size)
 {	
 	int				i;
 	int				j;
-	int				min;
+	long int		min;
 	t_stack_node 	*min_node;
 	t_stack_node	*current;
 
@@ -46,7 +46,7 @@ void	assign_indices(t_stack_node *head, int size)
 		j = 0;
 		while (size > j++)
 		{
-			if (current->index == -1 && current->value < min)
+			if (current->index == -1 && current->value < (min + 1))
 			{
 				min = current->value;
 				min_node = current;
@@ -86,6 +86,7 @@ void	stack_controller(t_parser *p)
 	print_list(a_stack, p->len);
 	printf("Radix will be called\n");
 	radix_sort(&a_stack, &b_stack, p->len);
+	print_list(a_stack, p->len);
 	ft_dl_lstclear(&a_stack);
 	ft_dl_lstclear(&b_stack);
 }

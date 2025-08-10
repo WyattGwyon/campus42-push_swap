@@ -69,12 +69,13 @@ void			ft_dl_lstclear(t_stack_node **head);
 void			ft_struct_free(void **ptr);
 void			ft_intarr_free(int **arr);
 void			clean_parser(t_parser **p);
-void			clean_all(t_parser **p, t_stack_node **a_stack, t_stack_node **b_stack);
+void			clean_all(t_parser **p, t_stack_node **a_stack, \
+							t_stack_node **b_stack);
 void			push(t_stack_node **src_head, t_stack_node **dest_head);
 void			swap(t_stack_node **head);
 void			rotate(t_stack_node **head);
 void			rev_rotate(t_stack_node **head);
-void    		radix_sort(t_stack_node **a, t_stack_node **b, int size);
+void			radix_sort(t_stack_node **a, t_stack_node **b, int size);
 void			pa(t_stack_node **a, t_stack_node **b);
 void			pb(t_stack_node **a, t_stack_node **b);
 void			sa(t_stack_node **a);

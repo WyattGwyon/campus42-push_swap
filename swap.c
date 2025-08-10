@@ -14,6 +14,11 @@
 
 void	swap(t_stack_node **head)
 {
+	if ((*head)->next == (*head)->prev)
+	{
+		*head = (*head)->next;
+		return ;
+	}
 	(*head)->prev->next = (*head)->next;
 	(*head)->next->next->prev = *head;
 	(*head)->next->prev = (*head)->prev;
@@ -39,5 +44,5 @@ void	ss(t_stack_node **a, t_stack_node **b)
 {
 	swap(a);
 	swap(b);
-	write(1, "sb\n", 3);
+	write(1, "ss\n", 3);
 }

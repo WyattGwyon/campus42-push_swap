@@ -224,34 +224,6 @@ int main(void)
 	print_stack(a, 'A');
 	print_stack(b, 'B');
 	
-////////////////////////////
-	// sa(&a);
-
-	// printf("\nAfter sa:\n");
-	// print_stack(a, 'A');
-
-	// sb(&b);
-
-	// printf("\nAfter sb:\n");
-	// print_stack(b, 'B');
-	
-	// sa(&a);
-
-	// printf("\nAfter sa:\n");
-	// print_stack(a, 'A');
-
-	// sb(&b);
-
-	// printf("\nAfter sb:\n");
-	// print_stack(b, 'B');
-	// swap(&a);
-	// swap(&b);
-	// write(1,"ss\n", 3);
-	// // ss(&a, &b);
-	// printf("\nAfter ss:\n");
-	// print_stack(a, 'A');
-	// print_stack(b, 'B');
-////////////////////////////
 	rr(&a, &b);
 
 	printf("\nAfter rr:\n");
@@ -284,6 +256,35 @@ int main(void)
 
 	printf("\nAfter rrb:\n");
 	print_stack(b, 'B');
+
+////////////////////////////
+	sa(&a);
+
+	printf("\nAfter sa:\n");
+	print_stack(a, 'A');
+
+	sb(&b);
+
+	printf("\nAfter sb:\n");
+	print_stack(b, 'B');
+	
+	sa(&a);
+
+	printf("\nAfter sa:\n");
+	print_stack(a, 'A');
+
+	sb(&b);
+
+	printf("\nAfter sb:\n");
+	print_stack(b, 'B');
+	swap(&a);
+	swap(&b);
+	write(1,"ss\n", 3);
+	ss(&a, &b);
+	printf("\nAfter ss:\n");
+	print_stack(a, 'A');
+	print_stack(b, 'B');
+////////////////////////////
 
 printf("Before pa:\n");
 	print_stack(a, 'A');

@@ -29,6 +29,7 @@ void	ft_struct_free(void **ptr)
 		*ptr = NULL;
 	}
 }
+
 void	clean_parser(t_parser **p)
 {
 	printf("are we free");
@@ -37,7 +38,6 @@ void	clean_parser(t_parser **p)
 	if ((*p)->intarr)
 		ft_intarr_free(&(*p)->intarr);
 	ft_struct_free((void **)p);
-	
 }
 
 void	clean_all(t_parser **p, t_stack_node **a_stack, t_stack_node **b_stack)
@@ -53,4 +53,3 @@ void	clean_all(t_parser **p, t_stack_node **a_stack, t_stack_node **b_stack)
 	if (b_stack && *b_stack)
 		ft_dl_lstclear(&(*b_stack));
 }
-

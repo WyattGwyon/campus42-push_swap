@@ -22,8 +22,8 @@ int	ft_issorted(t_parser *p)
 	{
 		cmp = p->intarr[i] < p->intarr[i + 1];
 		if (!cmp)
-			return (printf("NOT sorted\n"), 0);
+			return (0);
 		i++;
 	}
-	return (printf("is sorted\n"), 1);
+	return (1);
 }

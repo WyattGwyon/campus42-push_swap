@@ -14,7 +14,7 @@
 
 void	rev_rotate(t_stack_node **head)
 {
-	*head = (*head)->next;
+	*head = (*head)->prev;
 }
 
 void	rra(t_stack_node **a)

@@ -23,6 +23,83 @@ typedef struct s_stack_node
 	struct s_stack_node	*next;
 }	t_stack_node;
 
+void	rev_rotate(t_stack_node **head)
+{
+	*head = (*head)->next;
+}
+
+void	rra(t_stack_node **a)
+{
+	rev_rotate(a);
+	write(1, "rra\n", 4);
+}
+
+void	rrb(t_stack_node **b)
+{
+	rev_rotate(b);
+	write(1, "rrb\n", 4);
+}
+
+void	rrr(t_stack_node **a, t_stack_node **b)
+{
+	rev_rotate(a);
+	rev_rotate(b);
+	write(1, "rrr\n", 4);
+}
+
+void	rotate(t_stack_node **head)
+{
+	*head = (*head)->prev;
+}
+
+void	ra(t_stack_node **a)
+{
+	rotate(a);
+	write(1, "ra\n", 3);
+}
+
+void	rb(t_stack_node **b)
+{
+	rotate(b);
+	write(1, "rb\n", 3);
+}
+
+void	rr(t_stack_node **a, t_stack_node **b)
+{
+	rotate(a);
+	rotate(b);
+	write(1, "rr\n", 3);
+}
+
+void	swap(t_stack_node **head)
+{
+	(*head)->prev->next = (*head)->next;
+	(*head)->next->next->prev = *head;
+	(*head)->next->prev = (*head)->prev;
+	(*head)->prev = (*head)->next;
+	(*head)->next = (*head)->next->next;
+	(*head)->prev->next = *head;
+	*head = (*head)->prev;
+}
+
+void	sa(t_stack_node **a)
+{
+	swap(a);
+	write(1, "sa\n", 3);
+}
+
+void	sb(t_stack_node **b)
+{
+	swap(b);
+	write(1, "sb\n", 3);
+}
+
+void	ss(t_stack_node **a, t_stack_node **b)
+{
+	swap(a);
+	swap(b);
+	write(1, "sb\n", 3);
+}
 
 void	push(t_stack_node **dest_head, t_stack_node **src_head)
 {
@@ -124,30 +201,118 @@ int main(void)
 	print_stack(a, 'A');
 	print_stack(b, 'B');
 
-	pb(&a, &b); // Move top of A to B
+	pb(&a, &b); 
 
 	printf("\nAfter pb:\n");
 	print_stack(a, 'A');
 	print_stack(b, 'B');
 
-	pa(&a, &b); // Move top of B back to A
+	pa(&a, &b); 
 
 	printf("\nAfter pa:\n");
 	print_stack(a, 'A');
 	print_stack(b, 'B');
 
-	pb(&a, &b); // Move top of A to B
+	pb(&a, &b); 
 
 	printf("\nAfter pb:\n");
 	print_stack(a, 'A');
 	print_stack(b, 'B');
 
-	pb(&a, &b); // Move top of A to B
+	pb(&a, &b);
+	printf("\nAfter pb:\n");
+	print_stack(a, 'A');
+	print_stack(b, 'B');
+	
+////////////////////////////
+	// sa(&a);
+
+	// printf("\nAfter sa:\n");
+	// print_stack(a, 'A');
+
+	// sb(&b);
+
+	// printf("\nAfter sb:\n");
+	// print_stack(b, 'B');
+	
+	// sa(&a);
+
+	// printf("\nAfter sa:\n");
+	// print_stack(a, 'A');
+
+	// sb(&b);
+
+	// printf("\nAfter sb:\n");
+	// print_stack(b, 'B');
+	// swap(&a);
+	// swap(&b);
+	// write(1,"ss\n", 3);
+	// // ss(&a, &b);
+	// printf("\nAfter ss:\n");
+	// print_stack(a, 'A');
+	// print_stack(b, 'B');
+////////////////////////////
+	rr(&a, &b);
+
+	printf("\nAfter rr:\n");
+	print_stack(a, 'A');
+	print_stack(b, 'B');
+
+	ra(&a);
+
+	printf("\nAfter ra:\n");
+	print_stack(a, 'A');
+
+	rb(&b);
+
+	printf("\nAfter rb:\n");
+	print_stack(b, 'B');
+
+
+	rrr(&a, &b);
+
+	printf("\nAfter rrr:\n");
+	print_stack(a, 'A');
+	print_stack(b, 'B');
+
+	rra(&a);
+
+	printf("\nAfter rra:\n");
+	print_stack(a, 'A');
+
+	rrb(&b);
+
+	printf("\nAfter rrb:\n");
+	print_stack(b, 'B');
+
+printf("Before pa:\n");
+	print_stack(a, 'A');
+	print_stack(b, 'B');
+
+	pb(&a, &b); 
 
 	printf("\nAfter pb:\n");
 	print_stack(a, 'A');
 	print_stack(b, 'B');
 
+	pa(&a, &b); 
+
+	printf("\nAfter pa:\n");
+	print_stack(a, 'A');
+	print_stack(b, 'B');
+
+	pb(&a, &b); 
+
+	printf("\nAfter pb:\n");
+	print_stack(a, 'A');
+	print_stack(b, 'B');
+
+	pb(&a, &b);
+	printf("\nAfter pb:\n");
+	print_stack(a, 'A');
+	print_stack(b, 'B');
+	
 
 	return 0;
 }
+

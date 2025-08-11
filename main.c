@@ -27,7 +27,9 @@ static void	print_list(t_stack_node *head, int count)
 	}
 	printf("\n");
 }
-
+//make exec ARG="$(echo $(shuf -i 1-100 -n 100))"
+// or
+// nmp start
 int	main(int argc, char **argv)
 {
 	t_parser		*data;

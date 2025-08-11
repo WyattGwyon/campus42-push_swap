@@ -48,7 +48,11 @@ void	radix_sort(t_stack_node **a, t_stack_node **b, int size)
 			j++;
 		}
 		while (*b)
+		{	
+			if ((*b)->next->index > (*b)->index)
+				sb(b);
 			pa(a, b);
+		}
 		i++;
 	}
 }

@@ -51,13 +51,9 @@ int ft_lssorted(t_stack_node *head)
 	t_stack_node	*current;
 
 	current = head;
-	cmp = current->index == current->next->index + 1;
-	if (!cmp)
-		return (0);
-	current = current->next;
-	while (current != head)
+	while (current->next != head)
 	{
-		cmp = current->index == current->next->index + 1;
+		cmp = (current->index + 1) == current->next->index;
 		if (!cmp)
 			return (0);
 		current = current->next;
@@ -71,13 +67,9 @@ int ft_lsrevsorted(t_stack_node *head)
 	t_stack_node	*current;
 
 	current = head;
-	cmp = current->index == current->next->index - 1;
-	if (!cmp)
-		return (0);
-	current = current->next;
-	while (current != head)
+	while (current->next != head)
 	{
-		cmp = current->index == current->next->index - 1;
+		cmp = current->index == (current->next->index + 1);
 		if (!cmp)
 			return (0);
 		current = current->next;

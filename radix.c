@@ -58,55 +58,53 @@ void	radix_sort(t_stack_node **a, t_stack_node **b, int size)
 	int pas;
 	int a_rem;
 	int b_rem;
-    int pb;
 
 	i = 0;
+	pas = 0;
+	pbs = 0;
 	a_rem = size;
 	b_rem = 0;
-    pas = 0;
-    pbs = 0;
-    pb = 0;
 	max_bits = get_max_bits(size - 1);
-	while (i != max_bits + 1)
+	while (i < max_bits)
 	{
 		j = 0;
-		while (j < pbs)
+		while (j < pas)
 		{
-            if ((((*a)->index >> i) & 1) == 0)
-			{
-				pb(a, b);   
-				pb++;
-			}
-			else
-				ra(a);
+			ra(a);
 			j++;
 		}
-        if (ft_lssorted(*a) && ft_lsrevsorted(*b))
+		if (ft_lssorted(*a) && ft_lsrevsorted(*b))
         {
             while (*b)
                 pa(a,b);
             return ;
         }
-        pbs = 0;
-        while (j < a_rem)
+		pbs = 0;
+		while (j < a_rem)
 		{
 			if ((((*a)->index >> i) & 1) == 0)
 			{
-				pb(a, b);   
+				pb(a, b);
 				pbs++;
 			}
 			else
 				ra(a);
+			if (ft_lssorted(*a) && ft_lsrevsorted(*b))
+			{
+				while (*b)
+					pa(a,b);
+				return ;
+			}
 			j++;
 		}
 		i++;
-
-		// if (i == max_bits + 1)
-		// 	return ;
-
+		
+		// if (i == max_bits)
+		// return ;
+		
 		j = 0;
 		b_rem = b_rem + pbs - pas;
-        pas = 0;
+		pas = 0;
 		while (j < b_rem)
 		{	
 			if ((((*b)->index >> i) & 1) == 1)
@@ -116,9 +114,14 @@ void	radix_sort(t_stack_node **a, t_stack_node **b, int size)
 			}
 			else
 				rb(b);
+			if (ft_lssorted(*a) && ft_lsrevsorted(*b))
+			{
+				while (*b)
+					pa(a,b);
+				return ;
+			}
 			j++;
 		}
 		a_rem = a_rem + pas - pbs;
 	}
-    return ;
 }

@@ -27,3 +27,60 @@ int	ft_issorted(t_parser *p)
 	}
 	return (1);
 }
+
+
+int	ft_isrevsorted(t_parser *p)
+{
+	int	i;
+	int	cmp;
+
+	i = 0;
+	while ((i + 1) < p->len)
+	{
+		cmp = p->intarr[i] > p->intarr[i + 1];
+		if (!cmp)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int ft_lssorted(t_stack_node *head)
+{
+	int				cmp;
+	t_stack_node	*current;
+
+	current = head;
+	cmp = current->index == current->next->index + 1;
+	if (!cmp)
+		return (0);
+	current = current->next;
+	while (current != head)
+	{
+		cmp = current->index == current->next->index + 1;
+		if (!cmp)
+			return (0);
+		current = current->next;
+	}
+	return (1);
+}
+
+int ft_lsrevsorted(t_stack_node *head)
+{
+	int				cmp;
+	t_stack_node	*current;
+
+	current = head;
+	cmp = current->index == current->next->index - 1;
+	if (!cmp)
+		return (0);
+	current = current->next;
+	while (current != head)
+	{
+		cmp = current->index == current->next->index - 1;
+		if (!cmp)
+			return (0);
+		current = current->next;
+	}
+	return (1);
+}

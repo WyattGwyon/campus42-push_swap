@@ -68,17 +68,6 @@ void	radix_sort(t_stack_node **a, t_stack_node **b, int size)
 	while (i < max_bits)
 	{
 		j = 0;
-		while (j < pas)
-		{
-			ra(a);
-			j++;
-		}
-		if (ft_lssorted(*a) && ft_lsrevsorted(*b))
-        {
-            while (*b)
-                pa(a,b);
-            return ;
-        }
 		pbs = 0;
 		while (j < a_rem)
 		{
@@ -111,6 +100,11 @@ void	radix_sort(t_stack_node **a, t_stack_node **b, int size)
 			{
 				pa(a, b);
 				pas++;
+			}
+			if (pas != 0)
+			{
+				rr(a,b);
+				pas--;
 			}
 			else
 				rb(b);

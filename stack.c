@@ -12,22 +12,22 @@
 
 #include "push_swap.h"
 
-static void	print_list(t_stack_node *head, int count)
-{
-	t_stack_node	*curr;
-	int				i;
+// static void	print_list(t_stack_node *head, int count)
+// {
+// 	t_stack_node	*curr;
+// 	int				i;
 
-	curr = head;
-	i = 0;
-	printf("list\n");
-	while (i < count)
-	{
-		printf("%d:%d ", curr->index, curr->value);
-		curr = curr->next;
-		i++;
-	}
-	printf("\n");
-}
+// 	curr = head;
+// 	i = 0;
+// 	printf("list\n");
+// 	while (i < count)
+// 	{
+// 		printf("%d:%d ", curr->index, curr->value);
+// 		curr = curr->next;
+// 		i++;
+// 	}
+// 	printf("\n");
+// }
 
 void	assign_indices(t_stack_node *head, int size)
 {

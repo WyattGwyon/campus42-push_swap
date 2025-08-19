@@ -10,10 +10,15 @@
 #                                                                              #
 # **************************************************************************** #
 
+RED		=	\033[0;31m
+GREEN   =	\033[0;32m
+RESET   =	\033[0m  
+YELLOW  =	\033[1;33m
+BLUE    =	\033[0;34m
 
 CC		=	cc
 CFLAGS	=	-Wall -Wextra -Werror -I./include -I./libft
-CFLAGS	+=	-g3 -Wno-unused-function
+#CFLAGS	+=	-g3 -Wno-unused-function
 
 NAME	=	push_swap
 
@@ -41,26 +46,39 @@ LIBFT 	=	$(LIBFT_DIR)/libft.a
 all:$(NAME)
 
 $(NAME):$(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBFT)
+	@echo "$(BLUE)[PUSH_SWAP]$(RESET) $< → $@"
+	@$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBFT)
 
 $(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR) all
+	@$(MAKE) -C $(LIBFT_DIR) all --no-print-directory
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@printf "$(BLUE)[COMPILING]$(RESET) %-21s → %s\n" $< $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 # test: $(TEST_OBJ) $(NAME)
 # 	$(CC) $(CFLAGS) $^ -o $(TEST_BIN)
 
 clean:
-	rm -rf *.o 
+	@echo "$(YELLOW)"
+	@echo "+---------------------------+"
+	@echo "|  🧹  CLEANING OBJECTS     |"
+	@echo "+---------------------------+"
+	
+	@rm -rf *.o 
 # $(TEST_OBJ)
-	$(MAKE) -C $(LIBFT_DIR) clean
+	@$(MAKE) -C $(LIBFT_DIR) clean --no-print-directory
 
 fclean: clean
-	rm -f $(NAME) 
+	@echo "$(RED)"
+	@echo "+---------------------------+"
+	@echo "|  🔥 REMOVING EXECUTABLES  |"
+	@echo "+---------------------------+"
+	@rm -f $(NAME) 
 # $(TEST_BIN)
-	$(MAKE) -C $(LIBFT_DIR) fclean
+	@$(MAKE) -C $(LIBFT_DIR) fclean --no-print-directory
+	@echo "$(RESET)"
+	@echo "...now THAT'S effin' clean!\n"
 
 re: fclean all
 

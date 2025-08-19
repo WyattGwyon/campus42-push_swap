@@ -10,6 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
+BLUE    =	\033[0;34m
+RESET   =	\033[0m 
+GREEN   =	\033[0;32m
+YELLOW  =	\033[1;33m
+
 # Compiler and flags
 CC      = cc
 CFLAGS  = -Wall -Wextra -Werror
@@ -79,11 +84,13 @@ all: $(NAME)
 
 # Rule to build the library from object files
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	@echo "$(YELLOW)[LIBFT]$(RESET) Creating static library..."
+	@ar rcs $(NAME) $(OBJS)
 
 # Rule to compile .c to .o
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@printf "$(GREEN)[COMPILING]$(RESET) %-20s → %s\n" $< $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 # Rule to compile test
 test: $(TEST_OBJ) $(NAME)
@@ -91,11 +98,13 @@ test: $(TEST_OBJ) $(NAME)
 
 # Clean object files
 clean:
-	rm -f $(OBJS) $(TEST_OBJ)
+	@echo "Cleaning object libft files..."	
+	@rm -f $(OBJS) $(TEST_OBJ)
 
 # Clean object files and library
 fclean: clean
-	rm -f $(NAME) $(TEST_BIN)
+	@echo "Removing libft..."
+	@rm -f $(NAME) $(TEST_BIN)
 
 # Rebuild everything
 re: fclean all

@@ -14,47 +14,54 @@
 
 void	three_value_algo(t_stack_node **a)
 {
-	int *head;
-	int *next;
-	int *prev;
+	int head;
+	int next;
+	int prev;
 
 	head = (*a)->index;
 	next = (*a)->next->index;
 	prev = (*a)->prev->index;
-	if ((head > next && head > prev) && next < prev)
+	if (head < next && next > prev && head > prev)
+		rra(a);
+	else if (head > next && next < prev && head > prev)
+		ra(a);
+	else if (head < next && next > prev && head < prev)
 	{
-		ra(&a);
-		return ;
+		sa(a);
+		ra(a);
 	}
-	if ((head < next && head > prev) && next > prev)
+	else if (head > next && next < prev && head < prev)
+		sa(a);
+	else if (head > next && next > prev && head > prev)
 	{
-		sa(&a);
-		rra(&a);
-		return ;
+		sa(a);
+		rra(a);
 	}
-	if (!ft_issorted(a) && (head < next && head < prev))
-	{
-		sa(&a);
-		ra(&a);
-		return ;
-	}
-	if (head > prev && head < next)
-	{
-		rra(&a);
-		return ;
-	}
-	if (head < prev && head > next)
-	{
-		sa(&a);
-		return ;
-	}
+	return ;
 
 }
 
 
-void	five_value_algo(t_stack_node *a, t_stack_node *b)
+void	five_value_algo(t_stack_node **a, t_stack_node **b)
 {
-	pb(&a, &b);
-	pb(&a, &b);
+	int i;
 
+	i = 0;
+	while (i < 5)
+	{	
+		if ((*a)->index == 3 || (*a)->index == 4)
+		{
+			pb(a, b);
+		}
+		else
+			ra(a);
+		i++;
+	}
+	three_value_algo(a);
+	if ((*b)->index == 3)
+		sb(b);
+	pa(a, b);
+	pa(a, b);
+	ra(a);
+	ra(a);
 }

@@ -128,6 +128,5 @@ t_parser	*parse_controller(int argc, char *argv[])
 		free(p_data);
 		return (NULL);
 	}
-	// printf("len %d\n", p_data->len);
 	return (p_data);
 }

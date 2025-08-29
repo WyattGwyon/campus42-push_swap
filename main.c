@@ -12,21 +12,6 @@
 
 #include "push_swap.h"
 
-// static void	print_list(t_stack_node *head, int count)
-// {
-// 	t_stack_node	*curr;
-// 	int				i;
-
-// 	curr = head;
-// 	i = 0;
-// 	while (i < count)
-// 	{
-// 		printf("%d ", curr->value);
-// 		curr = curr->next;
-// 		i++;
-// 	}
-// 	printf("\n");
-// }
 //make exec ARG="$(echo $(shuf -i 1-100 -n 100))"
 // or
 // nmp start

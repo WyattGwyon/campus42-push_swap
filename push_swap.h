@@ -90,6 +90,8 @@ void			rr(t_stack_node **a, t_stack_node **b);
 void			rra(t_stack_node **a);
 void			rrb(t_stack_node **b);
 void			rrr(t_stack_node **a, t_stack_node **b);
+void			three_value_algo(t_stack_node **a);
+void			five_value_algo(t_stack_node **a, t_stack_node **b);
 
 // int ft_arrlen(void *arr);
 // int *parse_str2ints(char *str);

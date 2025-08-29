@@ -83,12 +83,12 @@ void	stack_controller(t_parser *p)
 
 	a_stack = stack_list(p);
 	b_stack = NULL;
-	// print_list(a_stack, p->len);
-	// printf("Radix will be called\n");
-	radix_sort(&a_stack, &b_stack, p->len);
-	// radix_sort(&a_stack, &b_stack, p->len);
-	// radix_sort(&a_stack, &b_stack, p->len);
-	// print_list(a_stack, p->len);
+	if (p->len == 3)
+		three_value_algo(&a_stack);
+	else if (p->len == 5)
+		five_value_algo(&a_stack, &b_stack);
+	else
+		radix_sort(&a_stack, &b_stack, p->len);
 	ft_dl_lstclear(&a_stack);
 	ft_dl_lstclear(&b_stack);
 }

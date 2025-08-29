@@ -32,7 +32,8 @@ SRCS	=	main.c \
 			swap.c\
 			rotate.c\
 			rev_rotate.c\
-			errors.c
+			errors.c\
+			small_algos.c
 
 OBJS	=	$(SRCS:%.c=%.o)
 

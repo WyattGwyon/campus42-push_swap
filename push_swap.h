@@ -35,6 +35,17 @@ typedef struct s_stack_node
 	struct s_stack_node	*next;
 }	t_stack_node;
 
+typedef struct s_radix
+{
+	int	max_bits;
+	int	i;
+	int	j;
+	int	pbs;
+	int	pas;
+	int	a_rem;
+	int	b_rem;
+}	t_radix;
+
 t_parser		*parse_controller(int argc, char *argv[]);
 int				ft_issorted(t_parser *p);
 int				ft_isrevsorted(t_parser *p);

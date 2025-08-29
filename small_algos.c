@@ -14,9 +14,9 @@
 
 void	three_value_algo(t_stack_node **a)
 {
-	int head;
-	int next;
-	int prev;
+	int	head;
+	int	next;
+	int	prev;
 
 	head = (*a)->index;
 	next = (*a)->next->index;
@@ -38,17 +38,15 @@ void	three_value_algo(t_stack_node **a)
 		rra(a);
 	}
 	return ;
-
 }
-
 
 void	five_value_algo(t_stack_node **a, t_stack_node **b)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 5)
-	{	
+	{
 		if ((*a)->index == 3 || (*a)->index == 4)
 		{
 			pb(a, b);

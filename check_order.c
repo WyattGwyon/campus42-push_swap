@@ -28,7 +28,6 @@ int	ft_issorted(t_parser *p)
 	return (1);
 }
 
-
 int	ft_isrevsorted(t_parser *p)
 {
 	int	i;
@@ -45,7 +44,7 @@ int	ft_isrevsorted(t_parser *p)
 	return (1);
 }
 
-int ft_lssorted(t_stack_node *head)
+int	ft_lssorted(t_stack_node *head)
 {
 	int				cmp;
 	t_stack_node	*current;
@@ -61,7 +60,7 @@ int ft_lssorted(t_stack_node *head)
 	return (1);
 }
 
-int ft_lsrevsorted(t_stack_node *head)
+int	ft_lsrevsorted(t_stack_node *head)
 {
 	int				cmp;
 	t_stack_node	*current;

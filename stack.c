@@ -66,6 +66,11 @@ void	stack_controller(t_parser *p)
 
 	a_stack = stack_list(p);
 	b_stack = NULL;
+	if (p->len == 2)
+	{
+		sa(&a_stack);
+		return ;
+	}
 	if (p->len == 3)
 		three_value_algo(&a_stack);
 	else if (p->len == 5)
@@ -74,4 +79,5 @@ void	stack_controller(t_parser *p)
 		radix_sort(&a_stack, &b_stack, p->len);
 	ft_dl_lstclear(&a_stack);
 	ft_dl_lstclear(&b_stack);
+	return ;
 }

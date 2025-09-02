@@ -15,6 +15,21 @@
 //make exec ARG="$(echo $(shuf -i 1-100 -n 100))"
 // or
 // nmp start
+
+void if_sorted(t_parser *data)
+{
+	if (ft_issorted(data))
+	{
+		ft_strarr_free(&data->strarr);
+		free(data->intarr);
+		data->intarr = NULL;
+		free(data);
+		exit(EXIT_SUCCESS);
+	}
+	else
+		return ;
+}
+
 int	main(int argc, char **argv)
 {
 	t_parser		*data;
@@ -30,7 +45,7 @@ int	main(int argc, char **argv)
 		free(data);
 		return (write(2, "Error\n", 6), 1);
 	}
-	ft_issorted(data);
+	if_sorted(data);
 	stack_controller(data);
 	ft_strarr_free(&data->strarr);
 	free(data->intarr);

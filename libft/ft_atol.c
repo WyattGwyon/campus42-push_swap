@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-long	ft_atol(const char *str)
+__int128_t	ft_atol(const char *str)
 {
-	int		sign;
-	long	num;
+	int			sign;
+	__int128_t	num;
 
 	sign = 1;
 	num = 0;

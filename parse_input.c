@@ -78,8 +78,8 @@ static char	**arg_separation(int argc, char *argv[])
 
 static int	*digit_manager(t_parser *p)
 {
-	int		i;
-	long	val;
+	int			i;
+	__int128_t	val;
 
 	i = 0;
 	p->len = ft_strarr_len(p->strarr);
@@ -94,7 +94,7 @@ static int	*digit_manager(t_parser *p)
 			return (NULL);
 		}
 		val = ft_atol(p->strarr[i]);
-		if (val > INT_MAX || val < INT_MIN)
+		if (val > (__int128_t)INT_MAX || val < (__int128_t)INT_MIN)
 		{
 			ft_intarr_free(&p->intarr);
 			return (NULL);

@@ -16,7 +16,7 @@
 // or
 // nmp start
 
-void if_sorted(t_parser *data)
+void	if_sorted(t_parser *data)
 {
 	if (ft_issorted(data))
 	{

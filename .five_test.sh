@@ -22,6 +22,7 @@ for a in {0..4}; do
 
           # Feed into push_swap and count lines
           echo -n "$input: "
+		  ./push_swap $input | wc -l
         done
       done
     done

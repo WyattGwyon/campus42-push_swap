@@ -62,6 +62,8 @@ static char	**arg_separation(int argc, char *argv[])
 	strarr = NULL;
 	while (i < argc)
 	{
+		if (is_all_whitespace(argv[i]))
+			return (NULL);
 		split = ft_split(argv[i], ' ');
 		if (!split)
 			return (ft_strarr_free(&strarr), NULL);

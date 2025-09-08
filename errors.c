@@ -32,7 +32,6 @@ void	ft_struct_free(void **ptr)
 
 void	clean_parser(t_parser **p)
 {
-	printf("are we free");
 	if ((*p)->strarr)
 		ft_strarr_free(&(*p)->strarr);
 	if ((*p)->intarr)
@@ -52,4 +51,22 @@ void	clean_all(t_parser **p, t_stack_node **a_stack, t_stack_node **b_stack)
 		ft_dl_lstclear(&(*a_stack));
 	if (b_stack && *b_stack)
 		ft_dl_lstclear(&(*b_stack));
+}
+
+bool	is_all_whitespace(const char *s)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
+		return (false);
+	while (s[i])
+	{
+		if (!(s[i] == ' '))
+			return (false);
+		i++;
+	}
+	if (i == 1)
+		return (true);
+	return (true);
 }

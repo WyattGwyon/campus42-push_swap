@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdio.h>
+# include <stdbool.h>
 # include <limits.h>
 # include "libft/libft.h"
 
@@ -80,5 +81,6 @@ void			rrb(t_stack_node **b);
 void			rrr(t_stack_node **a, t_stack_node **b);
 void			three_value_algo(t_stack_node **a);
 void			five_value_algo(t_stack_node **a, t_stack_node **b);
+bool			is_all_whitespace(const char *s);
 
 #endif
